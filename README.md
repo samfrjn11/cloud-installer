@@ -10,17 +10,23 @@ The Crownstone cloud uses MongoDB to store data. This script can install MongoDB
 
 When building for a raspberry pi, ensure to use the 64-bit OS. Please double check your system requirements.
 
-How to run the installer:
+Use the following commands to install. (Some installation confirmations may be asked during the installation process.)
+
 ```
 sudo apt update
 sudo apt install -y git
 git clone https://github.com/Crownstone-Community/cloud-installer.git
 cd cloud-installer
 git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+```
+
+You to update the keys of `mongo-init.js`. After that simply run the script.
+
+```
 ./install.sh ~/crownstone-cloud
 ```
 
-Some installation confirmations may be asked during the installation process and you might need to update the keys of `mongo-init.js`.
+
 
 You can see logs with `journalctl --user`.
 
