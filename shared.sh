@@ -5,8 +5,7 @@
 ################
 
 # The github user to get the git repos from.
-# This can be changed to: https://github.com/Crownstone-Community
-GIT_REPO_ROOT="https://github.com/crownstone"
+GIT_REPO_ROOT="https://github.com/crownstone-community"
 
 # The names of the git repos to install.
 GIT_REPOS="crownstone-cloud cloud-v2 crownstone-sse-server crownstone-webhooks crownstone-cron hub crownstone-cloud-bridge"
