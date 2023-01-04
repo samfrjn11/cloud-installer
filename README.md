@@ -1,16 +1,18 @@
 # Crownstone cloud installer
 
-This repository maintains scripts to install your own instance of Crownstone cloud on a local machine such as a raspberry pi (3/4/400).
+This repository maintains scripts to install your own instance of Crownstone cloud on a local machine such as a Raspberry Pi (3/4/400).
 
-This `install.sh` script installs the complete Crownstone cloud, and updates it as well.
+The scripts install the complete Crownstone cloud, and updates it as well.
 
 The Crownstone cloud uses MongoDB to store data. This script can install MongoDB as well. However, authorization will not be set up, though it will not be accessible via network.
 
 ## Installing
 
-When building for a raspberry pi, ensure to use the 64-bit OS. Please double check your system requirements.
+Most requirements come from the installation of [MongoDB](https://www.mongodb.com/docs/v4.4/administration/production-notes). When installing on a Raspberry Pi, ensure to use the 64-bit OS, as MongoDB requires an 64-bit OS. In case you want to install MongoDB manually or on another location, you can skip installing MongoDB during the installation process. This may require you to change the environment variables after installation.
 
-Use the following commands to install. (Some installation confirmations may be asked during the installation process.)
+The installation has been tested on a Raspberry Pi 4 with Raspberry Pi OS Lite 64-bit.
+
+Use the following commands to install. Some confirmations may be asked during the installation process.
 
 ```
 sudo apt update
@@ -20,7 +22,10 @@ cd cloud-installer
 git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 ```
 
-You to update the keys of `mongo-init.js`. After that simply run the script.
+MongoDB will be initialized with data by running `mongo-init.js`. If you don't provide this file yourself, it will be copied from the template `mongo-init-template.js`.
+At this moment, it is used to insert the keys that are used to send notifications to the phone app. If you want this, contact the maintainers for the keys.
+
+After that simply run the script.
 
 ```
 ./install.sh ~/crownstone-cloud
