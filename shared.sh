@@ -26,6 +26,10 @@ TAG_FILE_NAME="installed.tag"
 # File which existence marks an update being in progress.
 LOCK_FILE_NAME="update.lock"
 
+# MongoDB arguments required to connect to MongoDB.
+MONGO_DB_ARGS_FILE_NAME="mongo-args.txt"
+MONGO_DB_ARGS_TEMPLATE_FILE_NAME="mongo-args-template.txt"
+
 # MongoDB script file to insert data on install.
 MONGODB_INIT_SCRIPT_FILE_NAME="mongo-init.js"
 MONGODB_INIT_SCRIPT_TEMPLATE_FILE_NAME="mongo-init-template.js"
