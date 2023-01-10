@@ -26,7 +26,7 @@ In the middle of the install script you will be asked for keys to be able to sen
 
 Most requirements come from the installation of [MongoDB](https://www.mongodb.com/docs/v4.4/administration/production-notes). When installing on a Raspberry Pi, ensure to use the 64-bit OS, as MongoDB requires an 64-bit OS. In case you want to install MongoDB manually or on another location, you can skip installing MongoDB during the installation process. This may require you to change the environment variables after installation.
 
-The installation has been tested on a Raspberry Pi 4 with Raspberry Pi OS Lite 64-bit. Download from [here](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit) and install on an SD card using for example the general [balena etcher tool](https://www.balena.io/etcher/) or even better, the dedicated [Raspberry PI Imager](https://www.raspberrypi.com/software/). It is possible to write WiFi info by adding a `boot/wpa_supplicant.conf` file manually, but the Raspberry PI imager makes this all very convenient.
+The installation has been tested on a Raspberry Pi 4 with Raspberry Pi OS Lite 64-bit. Download the dedicated [Raspberry PI Imager](https://www.raspberrypi.com/software/) to graphically choose this image, directly configure WiFi, enable SSH key access, etc.
 
 Use the following commands to get this repository:
 ```
