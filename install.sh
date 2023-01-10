@@ -103,7 +103,7 @@ if [ "$answer" != "y" ]; then
 	exit 1
 fi
 echo "${PREFIX}Running MongoDB script to insert initial data."
-mongo "${THIS_DIR}/${MONGO_DB_ARGS_FILE_NAME}" "${THIS_DIR}/${MONGODB_INIT_SCRIPT_FILE_NAME}"
+mongo $( head -n 1 "${THIS_DIR}/${MONGO_DB_ARGS_FILE_NAME}" ) "${THIS_DIR}/${MONGODB_INIT_SCRIPT_FILE_NAME}"
 echo "${PREFIX}Done running MongoDB script to insert initial data."
 
 
