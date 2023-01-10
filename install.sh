@@ -115,10 +115,6 @@ if [ "$answer" != "n" ]; then
 	install_nvm
 fi
 
-
-echo "${PREFIX}Installing requirements"
-sudo apt install -y git
-
 # Generate tokens
 SSE_TOKEN="$( openssl rand -hex 128 )"
 AGGREGATION_TOKEN="$( openssl rand -hex 128 )"
