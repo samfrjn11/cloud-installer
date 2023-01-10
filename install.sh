@@ -147,7 +147,7 @@ for repo in $GIT_REPOS ; do
 		read answer
 		if [ "$answer" == "n" ]; then
 			echo "${PREFIX}Skipping $repo"
-			break
+			continue
 		fi
 	fi
 
@@ -156,7 +156,7 @@ for repo in $GIT_REPOS ; do
 		read answer
 		if [ "$answer" != "y" ]; then
 			echo "${PREFIX}Skipping $repo"
-			break
+			continue
 		fi
 	fi
 
