@@ -18,6 +18,10 @@ Think about:
 - Installing (and configuring) *fail2ban*.
 - Etc.
 
+## Preparation
+
+In the middle of the install script you will be asked for keys to be able to send push notifications from your local cloud instance towards the Android or iOS app. These keys can be provided by the maintainers. You can reach the maintainers for these keys at the [Crownstone Community discord server](https://discord.gg/TPYfMvV7bD).
+
 ## Installing
 
 Most requirements come from the installation of [MongoDB](https://www.mongodb.com/docs/v4.4/administration/production-notes). When installing on a Raspberry Pi, ensure to use the 64-bit OS, as MongoDB requires an 64-bit OS. In case you want to install MongoDB manually or on another location, you can skip installing MongoDB during the installation process. This may require you to change the environment variables after installation.
@@ -34,13 +38,12 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 ```
 
 MongoDB will be initialized with data by running `mongo-init.js`. If you don't provide this file yourself, it will be copied from the template `mongo-init-template.js`.
-At this moment, it is used to insert the keys that are used to send notifications to the phone app. If you want this, contact the maintainers for the keys.
+At this moment, it is used to insert the keys that are used to send notifications to the phone app (see above at **preparation**). Feel free to ignore too, but in that case no push notifications will be sent to the Crownstone apps.
 
 After that simply run the script (some confirmations may be asked during the installation process):
 ```
 ./install.sh ~/crownstone-cloud
 ```
-
 You can check the status of the various services with `systemctl --user status`.
 
 You can see logs with `journalctl --user`.
