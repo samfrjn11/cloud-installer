@@ -72,7 +72,7 @@ install_nvm() {
 echo "${PREFIX}The cloud server uses MongoDB to store data."
 echo "${PREFIX}If it's already installed, you can skip this step."
 while :; do
-	echo "${PREFIX}Install MongoDB? [y/n]"
+	echo "${PREFIX}Install MongoDB (requires sudo)? [y/n]"
 	read answer
 	if [ "$answer" == "y" ]; then
 		install_mongo
