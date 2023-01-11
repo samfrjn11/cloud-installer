@@ -22,6 +22,8 @@ Think about:
 
 In the middle of the install script you will be asked for keys to be able to send push notifications from your local cloud instance towards the Android or iOS app. These keys can be provided by the maintainers. You can reach the maintainers for these keys at the [Crownstone Community discord server](https://discord.gg/TPYfMvV7bD).
 
+Make sure to configure your server (the Rasperry Pi) to have a static local ip address. Usually this can be done by logging in on your router.
+
 ## Installing
 
 Most requirements come from the installation of [MongoDB](https://www.mongodb.com/docs/v4.4/administration/production-notes). When installing on a Raspberry Pi, ensure to use the 64-bit OS, as MongoDB requires an 64-bit OS. In case you want to install MongoDB manually or on another location, you can skip installing MongoDB during the installation process. This may require you to change the environment variables after installation.
@@ -50,22 +52,29 @@ You can see logs with `journalctl --user`.
 
 ## Data import
 
-Every user in your sphere will have to download their data at [https://next.crownstone.rocks/user-data](https://next.crownstone.rocks/user-data).
+Every user in your sphere will have to:
+- Get their phone and log out from the Crownstone app (Settings -> Log Out).
+- Download their data at [https://next.crownstone.rocks/user-data](https://next.crownstone.rocks/user-data).
 
-Then, go to your own cloud v2 server [http://127.0.0.1:3050/import-data](http://127.0.0.1:3050/import-data) and the port configured for cloud v2. Make sure to replace `127.0.0.1` with the IP address of your server, you can find it with the command `hostname -I`.
+Then, go to your own cloud v2 server [http://123.456.78.9:3050/import-data](http://123.456.78.9:3050/import-data) and the port configured for cloud v2. Make sure to replace `123.456.78.9` with the IP address of your server, you can find it with the command `hostname -I`.
 
 Now upload the downloaded data. Note that this can take a while, wait until the page changes into "DONE".
 
 ## App settings
 
-Make sure to configure your pi to have a static ip address. Usually this can be done by logging in on your router.
+Every user in your sphere will have to perform this step.
+
+Get your phone again and open the Crownstone app (where you logged out in the previous step).
+Before loggin in, click on *Configure custom cloud*.
 
 Now you can change the cloud address in the Crownstone app settings.
-- Address of custom cloud v1: http://127.0.0.1:3000/api/
-- Address of custom cloud v2: http://127.0.0.1:3050/api/
-- Address of custom sse server: http://127.0.0.1:8000/sse/
+- Address of custom cloud v1: http://123.456.78.9:3000/api/
+- Address of custom cloud v2: http://123.456.78.9:3050/api/
+- Address of custom sse server: http://123.456.78.9:8000/sse/
 
-Again, fill in the IP address of your server, and use the ports as configured.
+Again, replace `123.456.78.9` with the IP address of your server, and use the ports as configured.
+
+Now click *Validate and save*, and login.
 
 Note: After a preliminary success message you may get a warning pop-up saying that the cloud endpoints are not stored. This is a known bug. As long as the preliminary message reported success, you're all good.
 
