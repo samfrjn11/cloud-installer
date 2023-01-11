@@ -39,7 +39,7 @@ cd cloud-installer
 git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 ```
 
-MongoDB will be initialized with data by running `mongo-init.js`. If you don't provide this file yourself, it will be copied from the template `mongo-init-template.js`.
+MongoDB will be initialized with data by running `mongo mongo-init.js` with arguments from `mongo-args.txt`. If you don't provide these 2 files yourself, it will be copied from the template `mongo-init-template.js` and `mongo-args-template.txt` respectively.
 At this moment, it is used to insert the keys that are used to send notifications to the phone app (see above at **preparation**). Feel free to ignore too, but in that case no push notifications will be sent to the Crownstone apps.
 
 After that simply run the script (some confirmations may be asked during the installation process):
