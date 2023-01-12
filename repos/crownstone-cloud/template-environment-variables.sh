@@ -21,7 +21,7 @@ export STRONGLOOP_CLUSTER="2"
 # The URLs are prefixed with: mongodb://
 # You can fill in username and password here if you configured those.
 # For example: user:password@127.0.0.1:27017/data_v1?authSource=admin&ssl=true&sslValidate=false
-export DATA_TABLE="users_v1"
+export USER_TABLE="users_v1"
 export USER_DB_URL="localhost:27017/users_v1"
 export DATA_TABLE="data_v1"
 export DATA_DB_URL="localhost:27017/data_v1"
