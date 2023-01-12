@@ -18,6 +18,16 @@ Think about:
 - Installing (and configuring) *fail2ban*.
 - Etc.
 
+## Requirements
+
+Most requirements come from the installation of [MongoDB](https://www.mongodb.com/docs/v4.4/administration/production-notes). When installing on a Raspberry Pi, ensure to use the 64-bit OS, as MongoDB requires an 64-bit OS. In case you want to install MongoDB manually or on another location, you can skip installing MongoDB during the installation process. This may require you to change the environment variables after installation (see below), but it allows you to run this installer on a user without sudo rights, and configure authentication on MongoDB.
+
+Systemd is also required, as it's used to run the cloud in the background.
+
+The installation has been tested on a Raspberry Pi 4 with Raspberry Pi OS Lite 64-bit. Download the dedicated [Raspberry PI Imager](https://www.raspberrypi.com/software/) to graphically choose this image, directly configure WiFi, enable SSH key access, etc.
+
+
+
 ## Preparation
 
 In the middle of the install script you will be asked for keys to be able to send push notifications from your local cloud instance towards the Android or iOS app. These keys can be provided by the maintainers. You can reach the maintainers for these keys at the [Crownstone Community discord server](https://discord.gg/TPYfMvV7bD).
@@ -25,10 +35,6 @@ In the middle of the install script you will be asked for keys to be able to sen
 Make sure to configure your server (the Rasperry Pi) to have a static local ip address. Usually this can be done by logging in on your router.
 
 ## Installing
-
-Most requirements come from the installation of [MongoDB](https://www.mongodb.com/docs/v4.4/administration/production-notes). When installing on a Raspberry Pi, ensure to use the 64-bit OS, as MongoDB requires an 64-bit OS. In case you want to install MongoDB manually or on another location, you can skip installing MongoDB during the installation process. This may require you to change the environment variables after installation, but it allows you to run this installer on a user without sudo rights, and configure authentication on MongoDB.
-
-The installation has been tested on a Raspberry Pi 4 with Raspberry Pi OS Lite 64-bit. Download the dedicated [Raspberry PI Imager](https://www.raspberrypi.com/software/) to graphically choose this image, directly configure WiFi, enable SSH key access, etc.
 
 Use the following commands to get this repository:
 ```
@@ -46,7 +52,7 @@ After that simply run the script (some confirmations may be asked during the ins
 ```
 ./install.sh ~/crownstone-cloud
 ```
-You can check the status of the various services with `systemctl --user status`.
+You can check the status of the various services with `systemctl --user status cs-*`.
 
 You can see logs with `journalctl --user`.
 
@@ -78,6 +84,12 @@ Now click *Validate and save*, and login.
 
 Note: After a preliminary success message you may get a warning pop-up saying that the cloud endpoints are not stored. This is a known bug. As long as the preliminary message reported success, you're all good.
 
+## Environment variables
+
+During installation, the environmental variables used to configure the different repositories, are partially copied from template files and partially generated.
+You can find them in `cloud-installer/repos`. For example `cloud-installer/repos/cloud-v2/environment-variables.sh`.
+
+If you need to update these, for example when you manualy installed MongoDB, you will have to restart the service afterwards. For example: `systemctl --user restart cs-cloud-v2`.
 
 ## Open-source license
 
