@@ -7,19 +7,19 @@ The scripts install the complete Crownstone cloud, and updates it as well.
 The Crownstone cloud uses MongoDB to store data. This script can install MongoDB as well. However, authorization will not be set up, though it will not be accessible via network.
 
 The Crownstone cloud consists of:
-- (Cloud-v1)[https://github.com/crownstone-community/crownstone-cloud]
+- [Cloud-v1](https://github.com/crownstone-community/crownstone-cloud)
   - Handles login, and REST API calls.
-- (Cloud-v2)[https://github.com/crownstone-community/cloud-v2]
+- [Cloud-v2](https://github.com/crownstone-community/cloud-v2)
   - Handles new REST API calls, export and import of data.
-- (SSE)[https://github.com/crownstone-community/crownstone-sse-server]
+- [SSE](https://github.com/crownstone-community/crownstone-sse-server)
   - Enables sending events to clients.
-- (Webhooks)[https://github.com/crownstone-community/crownstone-webhooks]
+- [Webhooks](https://github.com/crownstone-community/crownstone-webhooks)
   - Enables sending updates to third parties (Google Home, Alexa, etc).
-- (Hub)[https://github.com/crownstone-community/hub]
+- [Hub](https://github.com/crownstone-community/hub)
   - Enables direct communication to the Crownstones (via a Crownstone USB dongle), and stores energy usage.
-- (Cron)[https://github.com/crownstone-community/cron]
+- [Cron](https://github.com/crownstone-community/cron)
   - Cleans up the database.
-- (Bridge)[https://github.com/crownstone-community/crownstone-cloud-bridge]
+- [Bridge](https://github.com/crownstone-community/crownstone-cloud-bridge)
   - Nothing yet.
 
 
