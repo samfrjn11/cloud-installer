@@ -91,6 +91,24 @@ You can find them in `cloud-installer/repos`. For example `cloud-installer/repos
 
 If you need to update these, for example when you manualy installed MongoDB, you will have to restart the service afterwards. For example: `systemctl --user restart cs-cloud-v2`.
 
+## Resolving problems
+
+Various problems can and have been encountered.
+
+In general checking the status of the cloud services:
+- `systemctl --user status cs-*`
+- `journalctl --user`
+
+Restarting a service:
+- `systemctl --user restart my-service`
+
+Removing a service:
+- `systemctl --user stop my-service`
+- `rm ~/.config/systemd/user/my-service.service`
+
+#### Failed to connect to bus: No such file or directory
+From a user account where systemctl workds, try using `machinectl shell cloud-user@` to get a shell where you login as the cloud user. See [this post](https://askubuntu.com/questions/1007055/systemctl-edit-problem-failed-to-connect-to-bus)
+
 ## Open-source license
 
 This software is provided under a noncontagious open-source license towards the open-source community. It's available under three open-source licenses:
