@@ -17,6 +17,9 @@ INSTALL_DIR="$( realpath "$1" )"
 echo "${PREFIX}Installing to: $INSTALL_DIR"
 mkdir -p "$INSTALL_DIR"
 
+# Make this and cloud dir unreadable by other users on the system.
+chmod go-rwx "$THIS_DIR" "$INSTALL_DIR"
+
 source "${THIS_DIR}/shared.sh"
 
 
@@ -84,7 +87,6 @@ while :; do
 	fi
 done
 
-
 # Insert MongoDB initial data.
 if [ ! -f "${THIS_DIR}/${MONGO_DB_ARGS_FILE_NAME}" ]; then
 	echo "${PREFIX}Using template MongoDB arguments file."
@@ -105,7 +107,6 @@ fi
 echo "${PREFIX}Running MongoDB script to insert initial data."
 mongo $( head -n 1 "${THIS_DIR}/${MONGO_DB_ARGS_FILE_NAME}" ) "${THIS_DIR}/${MONGODB_INIT_SCRIPT_FILE_NAME}"
 echo "${PREFIX}Done running MongoDB script to insert initial data."
-
 
 echo "${PREFIX}Node Version Manager (nvm) is used to install different versions of Node.js and Node Package Manager (npm)."
 echo "${PREFIX}If it's already installed, you can skip this step."
