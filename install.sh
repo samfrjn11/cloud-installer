@@ -184,6 +184,9 @@ for repo in $GIT_REPOS ; do
 	installed_repos="${installed_repos} $repo"
 done
 
+# Ensure the services don't get stopped on logout.
+loginctl enable-linger $USER
+
 echo "${PREFIX}Installing self update script"
 install_cron "* * * * *" "${THIS_DIR}/crownstone-cloud-update.sh ${INSTALL_DIR} > ${THIS_DIR}/update.log 2>&1"
 
