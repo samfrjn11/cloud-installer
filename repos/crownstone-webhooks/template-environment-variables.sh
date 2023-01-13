@@ -8,7 +8,9 @@ export DEBUG_TOKEN=
 # Default settings.
 export DEBUG=""
 export DEBUG_LEVEL="INFO"
-export HOST="localhost"
+
+# With host set to 0.0.0.0 the server is available from outside.
+export HOST="0.0.0.0"
 
 # Port at which this server is available.
 export PORT="3100"
