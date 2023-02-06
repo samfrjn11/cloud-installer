@@ -56,6 +56,8 @@ Make sure to configure your server (the Rasperry Pi) to have a static local ip a
 
 ## Installing
 
+During installation of all the tools, there's quite some network traffic. Preferably connect your hub through a wire rather than relying on a spotty WiFi connection.
+
 Use the following commands to get this repository:
 ```
 sudo apt update
