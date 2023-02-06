@@ -43,6 +43,9 @@ Systemd is also required, as it's used to run the cloud in the background.
 
 The installation has been tested on a Raspberry Pi 4 with Raspberry Pi OS Lite 64-bit. Download the dedicated [Raspberry PI Imager](https://www.raspberrypi.com/software/) to graphically choose this image, directly configure WiFi, enable SSH key access, etc.
 
+```
+sudo rpi-imager
+```
 
 
 ## Preparation
