@@ -131,6 +131,25 @@ Removing a service:
 #### Failed to connect to bus: No such file or directory
 From a user account where systemctl workds, try using `machinectl shell cloud-user@` to get a shell where you login as the cloud user. See [this post](https://askubuntu.com/questions/1007055/systemctl-edit-problem-failed-to-connect-to-bus)
 
+#### nvm errors
+
+If you're encountering errors like this:
+
+```
+$HOME/.nvm/nvm.sh: line 3319: [: -ne: unary operator expected
+$HOME/.nvm/nvm.sh: line 3323: [: -ne: unary operator expected
+$HOME/.nvm/nvm.sh: line 3335: [: -ne: unary operator expected
+```
+
+It's a simple mistake in the `nvm.sh` script where `EXIT_CODE` has not been initialized.
+
+```
+local EXIT_CODE
+EXIT_CODE = 0
+```
+
+It might not be a true issue though. Just getting rid of these warnings.
+
 ## Open-source license
 
 This software is provided under a noncontagious open-source license towards the open-source community. It's available under three open-source licenses:
