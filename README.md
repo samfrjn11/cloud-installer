@@ -181,6 +181,48 @@ locale
 
 And everything should be filled in.
 
+#### Hub function
+
+When you see something like this, it might be that the USB discovery of the dongle is not working. Of course, you didn't forget to set up the dongle, isn't it? :-)
+
+```
+TypeError: Cannot read property 'write' of null
+    at UartLinkManager.write (/home/crownstone-sysop/crownstone-cloud/hub/node_modules/crownstone-uart/dist/uartHandling/UartLinkManager.js:134:26)
+```
+
+Some debug tips:
+
+```
+vim /home/crownstone-sysop/.config/systemd/user/cs-hub.service
+# Adjust restart of the hub server from 5 sec to something more.
+RestartSec=5
+```
+
+Stop the hub server:
+
+```
+systemctl --user daemon-reload
+systemctl --user stop cs-hub
+```
+
+Make sure it is not running:
+```
+ps aux | grep execute
+# If there is some process, check from which path it is running, pstree doesn't give enough info here (pstree -s -p $PID)
+pwdx $PID
+# If it is `/home/crownstone-sysop/crownstone-cloud/hub`
+kill -i $PID
+# Iterate this a few times if necessary
+```
+
+Run it from the console:
+
+```
+ /home/crownstone-sysop/cloud-installer/repos/hub/run.sh /home/crownstone-sysop/crownstone-cloud/hub
+```
+
+And see if there are log statements with warnings/errors.
+
 ## Open-source license
 
 This software is provided under a noncontagious open-source license towards the open-source community. It's available under three open-source licenses:
