@@ -150,6 +150,30 @@ EXIT_CODE = 0
 
 It might not be a true issue though. Just getting rid of these warnings.
 
+#### locale
+
+If you get warnings about locale, feel free to ignore, but if you want to fix them:
+
+Create a file `/etc/locale.conf` with the contents (choose your own favorite, the example here is `en_US.UTF-8`):
+
+```
+LANG=en_US.UTF-8
+LC_ALL=en_US.utf-8
+LANGUAGE=en_US.UTF-8
+```
+
+And run:
+
+```
+sudo apt install locales
+sudo locale-gen "en_US.UTF-8"
+sudo update-locale "en_US.UTF-8"
+# logout and login
+locale
+```
+
+And everything should be filled in.
+
 ## Open-source license
 
 This software is provided under a noncontagious open-source license towards the open-source community. It's available under three open-source licenses:
