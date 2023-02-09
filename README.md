@@ -54,7 +54,7 @@ In the middle of the install script you will be asked for keys to be able to sen
 
 Make sure to configure your server (the Rasperry Pi) to have a static local ip address. Usually this can be done by logging in on your router.
 
-## Installing
+## Installation
 
 During installation of all the tools, there's quite some network traffic. Preferably connect your hub through a wire rather than relying on a spotty WiFi connection.
 
@@ -74,7 +74,14 @@ After that simply run the script (some confirmations may be asked during the ins
 ```
 ./install.sh ~/crownstone-cloud
 ```
-You can check the status of the various services with `systemctl --user status cs-*`.
+
+## Monitoring
+
+You can check the status of the various services with:
+
+```
+systemctl --user status cs-*
+```
 
 You can see logs with `journalctl --user`.
 
