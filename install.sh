@@ -25,7 +25,9 @@ source "${THIS_DIR}/shared.sh"
 
 install_mongo() {
 	echo "${PREFIX}Installing MongoDB"
-	sudo apt update
+ 	echo "deb http://security.ubuntu.com/ubuntu focal-security main" | sudo tee /etc/apt/sources.list.d/focal-security.list
+	sudo apt-get update
+	sudo apt-get install libssl1.1
 	sudo apt install -y gnupg
 	wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 
@@ -60,7 +62,9 @@ install_mongo() {
 	# Start up mongod!
 	sudo systemctl start mongod
 
-	# Optionally: create an admin user (via mongo shell) and enable authorization (in mongo config file).
+	sudo rm /etc/apt/sources.list.d/focal-security.list
+
+ 	# Optionally: create an admin user (via mongo shell) and enable authorization (in mongo config file).
 	echo "${PREFIX}Done installing MongoDB"
 }
 
@@ -139,6 +143,9 @@ install_env_vars() {
 	sed -i -re "s;CROWNSTONE_USER_ADMIN_KEY=.*;CROWNSTONE_USER_ADMIN_KEY=${CROWNSTONE_USER_ADMIN_KEY};g" "environment-variables.sh"
 	sed -i -re "s;DEBUG_TOKEN=.*;DEBUG_TOKEN=${DEBUG_TOKEN};g" "environment-variables.sh"
 }
+
+echo "${PREFIX}Installing dbus"
+sudo apt install dbus-user-session
 
 echo "${PREFIX}Installing repos"
 
