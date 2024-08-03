@@ -67,6 +67,8 @@ install_mongo() {
 
 install_nvm() {
 	echo "${PREFIX}Installing nvm"
+ 	sudo apt update
+	sudo apt install -y curl
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 	echo "${PREFIX}Done installing nvm"
 }
